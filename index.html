@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MyWebsite</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <h1>Welcome to My Website</h1>
+      <p>A clean, simple website built with HTML, CSS, and JavaScript.</p>
+      <button class="btn" onclick="showAlert()">Get Started</button>
+    </section>
+
+    <section id="about" class="cards">
+      <div class="card">
+        <h2>Feature One</h2>
+        <p>Add a description of your first feature or section here.</p>
+      </div>
+      <div class="card">
+        <h2>Feature Two</h2>
+        <p>Add a description of your second feature or section here.</p>
+      </div>
+      <div class="card">
+        <h2>Feature Three</h2>
+        <p>Add a description of your third feature or section here.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <form onsubmit="handleSubmit(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <p id="form-response"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 MyWebsite. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

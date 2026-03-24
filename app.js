@@ -16,6 +16,46 @@ function handleSubmit(event) {
   }
 }
 
+// Chat widget
+function toggleChat() {
+  document.getElementById('chat-box').classList.toggle('open');
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-msg user';
+  userMsg.textContent = text;
+  messages.appendChild(userMsg);
+  messages.scrollTop = messages.scrollHeight;
+
+  const typing = document.createElement('div');
+  typing.className = 'chat-msg bot';
+  typing.textContent = '...';
+  messages.appendChild(typing);
+  messages.scrollTop = messages.scrollHeight;
+
+  try {
+    const res = await fetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+    const data = await res.json();
+    typing.textContent = data.reply || 'Sorry, something went wrong.';
+  } catch {
+    typing.textContent = 'Error: Could not reach the server.';
+  }
+
+  messages.scrollTop = messages.scrollHeight;
+}
+
 // Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {

@@ -56,6 +56,22 @@
     <p>&copy; 2026 MyWebsite. All rights reserved.</p>
   </footer>
 
+  <!-- Chat Widget -->
+  <div id="chat-widget">
+    <div id="chat-toggle" onclick="toggleChat()">💬</div>
+    <div id="chat-box">
+      <div id="chat-header">
+        <span>AI Assistant</span>
+        <button onclick="toggleChat()">✕</button>
+      </div>
+      <div id="chat-messages"></div>
+      <div id="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
